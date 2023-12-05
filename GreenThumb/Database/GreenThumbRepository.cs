@@ -27,6 +27,5 @@ namespace GreenThumb.Database
             await _dbSet.AddAsync(entity);
         }
 
-
     }
 }

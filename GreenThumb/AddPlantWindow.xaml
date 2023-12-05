@@ -21,7 +21,7 @@
             <RowDefinition Height="20"/>
             <RowDefinition/>
             <RowDefinition/>
-
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition Height="20"/>
@@ -45,28 +45,44 @@
 
         <Label
             Content="Instructions"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="25"/>
 
-        <TextBox
-            Grid.Row="2"
-            Grid.Column="2"
-            Height="30"
-            Margin="30"/>
+        <Label
+            Grid.Row="3"
+            Grid.Column="1"
+            Content="Description"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="25"/>
 
-        <ListView
+        <TextBox
             Grid.Row="3"
             Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Height="30"
+            Margin="10"/>
+
+        <TextBox
+            Grid.Row="2"
+            Grid.Column="2"           
+            Height="30"
+            Margin="10"/>
+
+        <ListView
+            Grid.Row="4"
+            Grid.Column="2"
             Grid.RowSpan="2"
-            Margin="30"/>
+            Margin="10"
+            />
 
         <Button
             Grid.Column="3"
-            Grid.Row="4"
-            Margin="40 25 40 25"
+            Grid.Row="5"
+            Margin="40 20 40 20"
             Content="Add Plant"
             FontSize="20"
             Background="LawnGreen"/>

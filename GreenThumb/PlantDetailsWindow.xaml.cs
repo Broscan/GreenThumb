@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GreenThumb.Database;
+using GreenThumb.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GreenThumb
 {
@@ -19,9 +9,43 @@ namespace GreenThumb
     /// </summary>
     public partial class PlantDetailsWindow : Window
     {
-        public PlantDetailsWindow()
+        private PlantModel _plant;
+
+        public PlantDetailsWindow(PlantModel plantModel)
         {
             InitializeComponent();
+
+            _plant = plantModel;
+
+            txtName.Text = plantModel.PlantName;
+            txtDesc.Text = plantModel.Description;
+
+            PrintInstructions();
+
+        }
+        public async void PrintInstructions()
+        {
+            using (AppDbContext context = new())
+            {
+                GreenThumbUoW uow = new(context);
+
+                var allInstructions = await uow.InstructionRepository.GetAll();
+                var plantInstructions = allInstructions.Where(p => p.PlantId == _plant.PlantId);
+                string instructions = "";
+                foreach (var i in plantInstructions)
+                {
+                    instructions += i.Instruction + "\n";
+                }
+
+                txtInstructions.Text = instructions;
+            }
+        }
+
+        private void btn_Go_back(object sender, RoutedEventArgs e)
+        {
+            PlantWindow plantWindow = new();
+            plantWindow.Show();
+            Close();
         }
     }
 }

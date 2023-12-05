@@ -47,7 +47,7 @@
             Margin="100 0 100 30"
             Content="Details"
             FontSize="20"
-            Background="DeepSkyBlue"/>
+            Background="DeepSkyBlue" Click="btn_Details"/>
 
         <Button
             Grid.Row="5"
@@ -64,7 +64,7 @@
             Margin="15"
             Content="Add Plant"
             FontSize="20"
-            Background="LawnGreen"/>
+            Background="LawnGreen" Click="btn_AddPlant"/>
 
         <Label
             Grid.Column="3"
@@ -92,10 +92,12 @@
             Content="Search for plant!"/>
 
         <Button
+            Name="searchbox"
             Grid.Column="4"
             Grid.Row="2"
             Margin="60 25 25 25"
-            Content="Search"/>
+            Content="Search" 
+            Click="btn_Search"/>
 
 
 

@@ -7,14 +7,14 @@ namespace GreenThumb.Database
         private readonly AppDbContext _context;
 
         public GreenThumbRepository<PlantModel> PlantRepository { get; }
-        public GreenThumbRepository<InstructionModel> InstructionProperty { get; }
+        public GreenThumbRepository<InstructionModel> InstructionRepository { get; }
 
         public GreenThumbUoW(AppDbContext context)
         {
             _context = context;
 
             PlantRepository = new(context);
-            InstructionProperty = new(context);
+            InstructionRepository = new(context);
         }
 
         public async Task Complete()

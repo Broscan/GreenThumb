@@ -1,4 +1,5 @@
 ﻿using GreenThumb.Database;
+using GreenThumb.Models;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,6 +15,7 @@ namespace GreenThumb
             InitializeComponent();
 
             GetAllPlants();
+
 
         }
 
@@ -32,10 +34,38 @@ namespace GreenThumb
                     item.Tag = plant;
 
                     lstPlants.Items.Add(item);
-
-
                 }
+            }
+        }
 
+        private void btn_AddPlant(object sender, RoutedEventArgs e)
+        {
+            AddPlantWindow newWindow = new();
+            newWindow.Show();
+            Close();
+        }
+
+
+        private void btn_Search(object sender, RoutedEventArgs e)
+        {
+
+
+        }
+
+        private void btn_Details(object sender, RoutedEventArgs e)
+        {
+            ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+            PlantModel selectedPlant = (PlantModel)selectedItem.Tag;
+
+            if (lstPlants.SelectedItem != null)
+            {
+                PlantDetailsWindow detailsWindow = new(selectedPlant);
+                detailsWindow.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("You have to select a plant to show details!", "Warning");
             }
         }
     }
