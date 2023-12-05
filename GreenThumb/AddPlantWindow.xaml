@@ -5,8 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb"
         mc:Ignorable="d"
-        Title="AddPlantWindow" Height="450" Width="800">
+        Title="AddPlantWindow" Height="450" Width="800" Background="PaleGreen">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Label
+            Content="Add-A-Plant!"
+            Grid.Row="1"
+            Grid.Column="2"
+            FontSize="40"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+
+        <Label
+            Content="Plant"
+            Grid.Row="2"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="25"/>
+
+        <Label
+            Content="Instructions"
+            Grid.Row="3"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="25"/>
+
+        <TextBox
+            Grid.Row="2"
+            Grid.Column="2"
+            Height="30"
+            Margin="30"/>
+
+        <ListView
+            Grid.Row="3"
+            Grid.Column="2"
+            Grid.RowSpan="2"
+            Margin="30"/>
+
+        <Button
+            Grid.Column="3"
+            Grid.Row="4"
+            Margin="40 25 40 25"
+            Content="Add Plant"
+            FontSize="20"
+            Background="LawnGreen"/>
+
     </Grid>
 </Window>

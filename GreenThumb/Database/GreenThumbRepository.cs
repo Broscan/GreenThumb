@@ -2,7 +2,7 @@
 
 namespace GreenThumb.Database
 {
-    internal class GreenThumbRepository<T> where T : class
+    public class GreenThumbRepository<T> where T : class
     {
         private readonly AppDbContext _context;
         private readonly DbSet<T> _dbSet;
@@ -21,7 +21,6 @@ namespace GreenThumb.Database
         {
             return await _dbSet.FindAsync(id);
         }
-
 
         public async Task Add(T entity)
         {

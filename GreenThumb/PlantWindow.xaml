@@ -5,8 +5,99 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb"
         mc:Ignorable="d"
-        Title="PlantWindow" Height="450" Width="800">
+        Title="PlantWindow" Height="450" Width="800" Background="PaleGreen">
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+            
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+
+
+        <ListView
+            Name="lstPlants"
+            Grid.Row="3"
+            Grid.Column="2"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="3"
+            Margin="60 0 60 0"
+            />
+
+        <Button
+            Grid.Row="5"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Margin="100 0 100 30"
+            Content="Details"
+            FontSize="20"
+            Background="DeepSkyBlue"/>
+
+        <Button
+            Grid.Row="5"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Margin="100 0 100 30"
+            Content="Remove"
+            FontSize="20"
+            Background="IndianRed"/>
+
+        <Button
+            Grid.Row="5"
+            Grid.Column="5"
+            Margin="15"
+            Content="Add Plant"
+            FontSize="20"
+            Background="LawnGreen"/>
+
+        <Label
+            Grid.Column="3"
+            Grid.Row="1"           
+            Content="The Plants"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="30" 
+            />
+
+        <TextBox
+            Grid.Column="2"
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            Height="25"
+            Width="250"
+            Name="searchPlants"
+            />
         
+        <Label
+            Grid.Row="2"
+            Grid.Column="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="Search for plant!"/>
+
+        <Button
+            Grid.Column="4"
+            Grid.Row="2"
+            Margin="60 25 25 25"
+            Content="Search"/>
+
+
+
     </Grid>
 </Window>
