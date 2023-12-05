@@ -3,6 +3,7 @@ using GreenThumb.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumb.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231205092118_updateDataBaseOnSecondComputer")]
+    partial class updateDataBaseOnSecondComputer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,140 +64,6 @@ namespace GreenThumb.Migrations
                     b.HasIndex("PlantId");
 
                     b.ToTable("Instructions");
-
-                    b.HasData(
-                        new
-                        {
-                            InstructionId = 1,
-                            Instruction = "Full sunlight for at least 6 hours a day.",
-                            PlantId = 1
-                        },
-                        new
-                        {
-                            InstructionId = 2,
-                            Instruction = "Pinch off flower buds to encourage leaf growth. Harvest regularly.",
-                            PlantId = 1
-                        },
-                        new
-                        {
-                            InstructionId = 3,
-                            Instruction = "Partial to full shade.",
-                            PlantId = 2
-                        },
-                        new
-                        {
-                            InstructionId = 4,
-                            Instruction = "Keep the soil consistently moist, especially during dry spells.",
-                            PlantId = 2
-                        },
-                        new
-                        {
-                            InstructionId = 5,
-                            Instruction = "Allow the soil to dry out completely between watering.",
-                            PlantId = 3
-                        },
-                        new
-                        {
-                            InstructionId = 6,
-                            Instruction = "Use well-draining soil. Be cautious not to overwater.",
-                            PlantId = 3
-                        },
-                        new
-                        {
-                            InstructionId = 7,
-                            Instruction = "Wipe leaves with a damp cloth to remove dust. Avoid overwatering.",
-                            PlantId = 4
-                        },
-                        new
-                        {
-                            InstructionId = 8,
-                            Instruction = "Low to moderate indirect light.",
-                            PlantId = 4
-                        },
-                        new
-                        {
-                            InstructionId = 9,
-                            Instruction = "Support the plant with stakes. Prune to encourage airflow and fruiting.",
-                            PlantId = 5
-                        },
-                        new
-                        {
-                            InstructionId = 10,
-                            Instruction = "Keep the soil consistently moist.",
-                            PlantId = 5
-                        },
-                        new
-                        {
-                            InstructionId = 11,
-                            Instruction = "Regular watering, and deep soakings.",
-                            PlantId = 6
-                        },
-                        new
-                        {
-                            InstructionId = 12,
-                            Instruction = "Prune dead or diseased branches. Fertilize during the growing season.",
-                            PlantId = 6
-                        },
-                        new
-                        {
-                            InstructionId = 13,
-                            Instruction = "Well-drained soil; water sparingly.",
-                            PlantId = 7
-                        },
-                        new
-                        {
-                            InstructionId = 14,
-                            Instruction = "Allow the foliage to die back naturally after flowering.",
-                            PlantId = 7
-                        },
-                        new
-                        {
-                            InstructionId = 15,
-                            Instruction = "Allow the potting mix to dry between waterings.",
-                            PlantId = 8
-                        },
-                        new
-                        {
-                            InstructionId = 16,
-                            Instruction = "Use orchid-specific fertilizers. Repot when needed.",
-                            PlantId = 8
-                        },
-                        new
-                        {
-                            InstructionId = 17,
-                            Instruction = "Regular watering.",
-                            PlantId = 9
-                        },
-                        new
-                        {
-                            InstructionId = 18,
-                            Instruction = "Pinch back young shoots to encourage bushiness. Deadhead spent blooms.",
-                            PlantId = 9
-                        },
-                        new
-                        {
-                            InstructionId = 19,
-                            Instruction = "Plant tubers in well-draining soil. Mulch to retain moisture.",
-                            PlantId = 10
-                        },
-                        new
-                        {
-                            InstructionId = 20,
-                            Instruction = "Keep the soil consistently moist.",
-                            PlantId = 10
-                        },
-                        new
-                        {
-                            InstructionId = 21,
-                            Instruction = "Allow foliage to wither naturally after flowering. Divide bulbs if needed.",
-                            PlantId = 11
-                        },
-                        new
-                        {
-                            InstructionId = 22,
-                            Instruction = "Well-drained soil; water during dry periods.",
-                            PlantId = 11
-                        });
                 });
 
             modelBuilder.Entity("GreenThumb.Models.PlantGarden", b =>
