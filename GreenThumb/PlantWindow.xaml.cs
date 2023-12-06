@@ -68,5 +68,32 @@ namespace GreenThumb
                 MessageBox.Show("You have to select a plant to show details!", "Warning");
             }
         }
+
+        private async void btn_Remove(object sender, RoutedEventArgs e)
+        {
+
+            if (lstPlants.SelectedItem != null)
+            {
+                using (AppDbContext context = new())
+                {
+                    ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                    PlantModel selectedPlant = (PlantModel)selectedItem.Tag;
+
+                    GreenThumbRepository<PlantModel> plantRepository = new(context);
+
+                    await plantRepository.RemoveAsync(selectedPlant.PlantId);
+                    lstPlants.Items.Remove(selectedItem);
+                    GreenThumbUoW uow = new(context);
+                    await uow.Complete();
+
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("You have to select a plant to remove!", "Warning");
+            }
+        }
     }
 }

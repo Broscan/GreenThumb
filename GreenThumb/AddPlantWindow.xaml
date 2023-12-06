@@ -60,6 +60,7 @@
             FontSize="25"/>
 
         <TextBox
+            Name="txtDesc"
             Grid.Row="3"
             Grid.Column="2"
             Grid.ColumnSpan="2"
@@ -67,12 +68,14 @@
             Margin="10"/>
 
         <TextBox
+            Name="txtPlant"
             Grid.Row="2"
             Grid.Column="2"           
             Height="30"
             Margin="10"/>
 
         <ListView
+            Name="lstInstructions"
             Grid.Row="4"
             Grid.Column="2"
             Grid.RowSpan="2"
@@ -85,7 +88,7 @@
             Margin="40 20 40 20"
             Content="Add Plant"
             FontSize="20"
-            Background="LawnGreen"/>
+            Background="LawnGreen" Click="btn_AddPlant"/>
 
     </Grid>
 </Window>

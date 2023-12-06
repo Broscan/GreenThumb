@@ -27,5 +27,18 @@ namespace GreenThumb.Database
             await _dbSet.AddAsync(entity);
         }
 
+        public async Task<bool> RemoveAsync(int id)
+        {
+            T? entityToRemove = await GetById(id);
+
+            if (entityToRemove != null)
+            {
+                _dbSet.Remove(entityToRemove);
+
+                return true;
+            }
+
+            return false;
+        }
     }
 }
