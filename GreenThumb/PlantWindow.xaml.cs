@@ -46,11 +46,7 @@ namespace GreenThumb
         }
 
 
-        private void btn_Search(object sender, RoutedEventArgs e)
-        {
 
-
-        }
 
         private void btn_Details(object sender, RoutedEventArgs e)
         {
@@ -87,12 +83,33 @@ namespace GreenThumb
                     await uow.Complete();
 
                 }
-
-
             }
+
             else
             {
                 MessageBox.Show("You have to select a plant to remove!", "Warning");
+            }
+        }
+
+        // Search function for plants 
+        private void searchPlants_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            using (AppDbContext context = new())
+            {
+                string searchPlant = searchPlants.Text.ToLower();
+
+                var filterPlants = context.Plants.Where(p => p.PlantName.Contains(searchPlant)).ToList();
+
+                lstPlants.Items.Clear();
+                foreach (var filterPlant in filterPlants)
+                {
+                    ListViewItem item = new();
+                    item.Tag = filterPlant;
+                    item.Content = filterPlant.PlantName;
+
+                    lstPlants.Items.Add(item);
+                }
+
             }
         }
     }

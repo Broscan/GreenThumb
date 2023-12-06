@@ -33,6 +33,14 @@ namespace GreenThumb.Database
 
             modelBuilder.Entity<PlantGarden>().HasKey(pg => new { pg.PlantId, pg.GardenId });
 
+            modelBuilder.Entity<UserModel>().HasData(
+                new UserModel()
+                {
+                    UserId = 1,
+                    UserName = "Test",
+                    Password = "Test",
+                });
+
             modelBuilder.Entity<PlantModel>().HasData(
                 new PlantModel()
                 {

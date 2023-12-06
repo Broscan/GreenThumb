@@ -1,7 +1,6 @@
 ﻿using GreenThumb.Database;
 using GreenThumb.Models;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace GreenThumb
 {
@@ -10,47 +9,60 @@ namespace GreenThumb
     /// </summary>
     public partial class AddPlantWindow : Window
     {
-        List<string> instructions = new();
         public AddPlantWindow()
         {
             InitializeComponent();
         }
 
-        private void btn_AddPlant(object sender, RoutedEventArgs e)
+        private async void btn_AddPlant(object sender, RoutedEventArgs e)
         {
-
             using (AppDbContext context = new())
             {
-
-                ListViewItem selectedItem = (ListViewItem)lstInstructions.SelectedItem;
-
-
-                if (selectedItem != null)
+                if (!string.IsNullOrEmpty(txtPlant.Text) && !string.IsNullOrEmpty(txtDesc.Text))
                 {
                     string plantName = txtPlant.Text;
                     string plantDesc = txtDesc.Text;
 
-                    foreach (var instruction in instructions)
-                    {
-                        InstructionModel newInstruction = new()
-                        {
-                            Instruction = instruction,
-                        };
-                    }
+                    List<InstructionModel> instructions = new();
 
+                    foreach (string instruction in lstInstructions.Items)
+                    {
+                        InstructionModel inst = new()
+                        {
+                            Instruction = instruction
+                        };
+
+                        instructions.Add(inst);
+                    }
 
                     PlantModel newPlant = new()
                     {
                         PlantName = plantName,
                         Description = plantDesc,
-
+                        Instructions = instructions
                     };
+
+                    GreenThumbUoW gtUow = new(context);
+                    var allPlants = await gtUow.PlantRepository.GetAll();
+
+                    if (!allPlants.Any(p => p.PlantName?.ToLower() == plantName))
+                    {
+                        await gtUow.PlantRepository.Add(newPlant);
+                        await gtUow.Complete();
+
+                        UpdateUI();
+                    }
+                    else
+                    {
+                        MessageBox.Show("That plant already exists!", "Warning");
+                    }
+
                 }
+
                 else
                 {
                     MessageBox.Show("Some of the inputs are empty!", "Warning");
                 }
-
             }
 
         }
@@ -60,18 +72,17 @@ namespace GreenThumb
             if (txtInstructions != null)
             {
                 string newInstruction = txtInstructions.Text;
-                instructions.Add(newInstruction);
 
-                foreach (string instruction in instructions)
-                {
-                    lstInstructions.Items.Add(instruction);
-                }
+                lstInstructions.Items.Add(newInstruction);
+                txtInstructions.Text = "";
             }
         }
 
         private void UpdateUI()
         {
-
+            txtPlant.Text = "";
+            txtDesc.Text = "";
+            lstInstructions.Items.Clear();
         }
     }
 }

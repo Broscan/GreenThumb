@@ -11,6 +11,8 @@ namespace GreenThumb.Models
         [Column("garden_name")]
         public string GardenName { get; set; } = null!;
         public List<PlantGarden> PlantGardens { get; set; } = new();
+        [ForeignKey(nameof(User))]
+        public int UserId { get; set; }
         public UserModel? User { get; set; }
 
     }

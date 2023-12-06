@@ -9,7 +9,7 @@ namespace GreenThumb.Models
         [Column("id")]
         public int PlantId { get; set; }
         [Column("plant_name")]
-        public string? PlantName { get; set; }
+        public string PlantName { get; set; } = null!;
         [Column("plant_description")]
         public string? Description { get; set; }
         public List<InstructionModel> Instructions { get; set; } = new();

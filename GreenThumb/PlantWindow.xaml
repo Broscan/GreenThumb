@@ -81,7 +81,7 @@
             Grid.ColumnSpan="3"
             Height="25"
             Width="250"
-            Name="searchPlants"
+            Name="searchPlants" TextChanged="searchPlants_TextChanged"
             />
         
         <Label
@@ -91,13 +91,7 @@
             VerticalAlignment="Top"
             Content="Search for plant!"/>
 
-        <Button
-            Name="searchbox"
-            Grid.Column="4"
-            Grid.Row="2"
-            Margin="60 25 25 25"
-            Content="Search" 
-            Click="btn_Search"/>
+
 
 
 

@@ -12,7 +12,9 @@ namespace GreenThumb.Models
         public string? UserName { get; set; }
         [Column("password")]
         public string? Password { get; set; }
-        public int GardenId { get; set; }
-        public GardenModel Garden { get; set; } = null!;
+        [ForeignKey(nameof(Garden))]
+
+        public int? GardenId { get; set; }
+        public GardenModel? Garden { get; set; } = null!;
     }
 }
