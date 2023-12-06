@@ -11,6 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition Width="20"/>
@@ -77,18 +78,34 @@
         <ListView
             Name="lstInstructions"
             Grid.Row="4"
-            Grid.Column="2"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
             Grid.RowSpan="2"
             Margin="10"
             />
 
+        <TextBox
+            Name="txtInstructions"
+            Grid.Column="2"
+            Grid.Row="4"
+            Height="50"
+            TextWrapping="Wrap"/>
+
         <Button
-            Grid.Column="3"
+            Grid.Column="1"
             Grid.Row="5"
-            Margin="40 20 40 20"
+            Margin="30 20 30 20"
             Content="Add Plant"
             FontSize="20"
             Background="LawnGreen" Click="btn_AddPlant"/>
+
+        <Button
+            
+            Grid.Row="5"
+            Grid.Column="2"
+            Margin="20"
+            Content="Add Instruction"
+            FontSize="20" Click="btn_AddInstruction"/>
 
     </Grid>
 </Window>
