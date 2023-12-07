@@ -11,8 +11,8 @@ namespace GreenThumb
         {
             InitializeComponent();
 
-            PlantWindow plantWindow = new PlantWindow();
-            plantWindow.Show();
+            SignInWindow signInWindow = new();
+            signInWindow.Show();
             Close();
         }
     }

@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GreenThumb.Manager;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GreenThumb
 {
@@ -22,6 +11,26 @@ namespace GreenThumb
         public SignInWindow()
         {
             InitializeComponent();
+        }
+
+        private async void btn_SignIn(object sender, RoutedEventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            bool isNotAuthenticated = await UserManager.SignInUser(username, password);
+
+            if (isNotAuthenticated)
+            {
+                PlantWindow plWindow = new();
+                plWindow.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Username or password!", "Warning");
+            }
+
         }
     }
 }

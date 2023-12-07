@@ -5,8 +5,99 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
+        Title="RegisterWindow" Height="450" Width="700">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Column="2"
+            Grid.Row="2"
+            Grid.ColumnSpan="5"
+            Grid.RowSpan="4"
+            Background="MintCream"
+            CornerRadius="30"/>
+
+        <Label
+            Content="Travel Pal"
+            Grid.Column="2"
+            Grid.Row="1"
+            Grid.ColumnSpan="5"
+            FontSize="40"
+            FontWeight="DemiBold"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontFamily="Arial"/>
+
+        <Label
+            Content="Username:"
+            Grid.Row="2"
+            Grid.Column="3"
+            FontSize="20"
+            VerticalAlignment="Center"/>
+
+        <Label
+            Content="Password:"
+            Grid.Row="3"
+            Grid.Column="3"
+            FontSize="20"
+            VerticalAlignment="Center"/>
+
+        <TextBox
+            Name="txtUsernameRegister"
+            Grid.Row="2"
+            Grid.Column="4"
+            Height="30"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            Grid.ColumnSpan="2"/>
+
+        <TextBox
+            Name="txtPasswordRegister"
+            Grid.Row="3"
+            Grid.Column="4"
+            Height="30"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            Grid.ColumnSpan="2"/>
+
+        <Button
+            Grid.Column="3"
+            Grid.Row="4"
+            Margin="10"
+            Content="Register"
+            FontSize="20"
+            Background="Beige" 
+            Click="btn_RegisterUser"/>
+
+        <Button
+            Grid.Column="7"
+            Grid.Row="6"
+            Margin="10"
+            Content="Go Back"
+            FontSize="20"/>
+
+
     </Grid>
 </Window>

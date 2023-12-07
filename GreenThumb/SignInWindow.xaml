@@ -7,6 +7,100 @@
         mc:Ignorable="d"
         Title="SignInWindow" Height="450" Width="800">
     <Grid>
-        
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+
+        <Border
+            Grid.Column="2"
+            Grid.Row="2"
+            Grid.ColumnSpan="5"
+            Grid.RowSpan="3"
+            Background="MintCream"
+            CornerRadius="30"/>
+
+        <Label
+            Content="Green Thumb"
+            Grid.Column="2"
+            Grid.Row="1"
+            Grid.ColumnSpan="5"
+            FontSize="40"
+            FontWeight="DemiBold"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontFamily="Arial"/>
+
+        <Label
+            Content="Username:"
+            Grid.Row="2"
+            Grid.Column="3"
+            FontSize="20"
+            VerticalAlignment="Center"/>
+
+        <Label
+            Content="Password:"
+            Grid.Row="3"
+            Grid.Column="3"
+            FontSize="20"
+            VerticalAlignment="Center"/>
+
+        <TextBox
+            Name="txtUsername"
+            Grid.Row="2"
+            Grid.Column="4"
+            Height="30"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            Grid.ColumnSpan="2"/>
+
+        <TextBox
+            Name="txtPassword"
+            Grid.Row="3"
+            Grid.Column="4"
+            Height="30"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            Grid.ColumnSpan="2"/>
+
+
+        <Button
+            Grid.Column="5"
+            Grid.Row="4"
+            Margin="20"
+            Content="Sign In"
+            FontSize="20"
+            Background="LightGreen" 
+            Click="btn_SignIn"/>
+
+        <Button
+            Grid.Column="3"
+            Grid.Row="4"
+            Margin="20"
+            Content="Register"
+            FontSize="20"
+            Background="Beige" 
+            />
+
     </Grid>
 </Window>

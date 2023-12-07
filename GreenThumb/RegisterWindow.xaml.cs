@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GreenThumb.Manager;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace GreenThumb
 {
@@ -22,6 +11,31 @@ namespace GreenThumb
         public RegisterWindow()
         {
             InitializeComponent();
+        }
+
+        private async void btn_RegisterUser(object sender, RoutedEventArgs e)
+        {
+            string username = txtUsernameRegister.Text;
+            string password = txtPasswordRegister.Text;
+
+            if ()
+            {
+                // Create a User
+
+                await UserManager.RegisterUser(username, password);
+
+                MessageBox.Show("You have successfully registered!", "Well done");
+
+                // Öppna window
+            }
+            else if (UserManager.ValidateUsername(username) == false)
+            {
+                MessageBox.Show("That Username is already taken!", "Warning");
+            }
+            else
+            {
+                MessageBox.Show("Some of the fields are empty!", "Warning!");
+            }
         }
     }
 }
