@@ -13,7 +13,7 @@ namespace GreenThumb.Models
         [Column("password")]
         public string? Password { get; set; }
         [ForeignKey(nameof(Garden))]
-
+        [Column("garden_id")]
         public int? GardenId { get; set; }
         public GardenModel? Garden { get; set; } = null!;
     }

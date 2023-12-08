@@ -96,7 +96,7 @@
             Grid.Row="6"
             Margin="10"
             Content="Go Back"
-            FontSize="20"/>
+            FontSize="20" Click="btn_GoBackToSignIn"/>
 
 
     </Grid>

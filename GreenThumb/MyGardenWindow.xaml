@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb"
         mc:Ignorable="d"
-        Title="MyGardenWindow" Height="450" Width="800">
+        Title="MyGardenWindow" Height="450" Width="800" Background="PaleGreen">
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+
+
+        <ListView
+    Name="lstPlantsGarden"
+    Grid.Row="3"
+    Grid.Column="2"
+    Grid.RowSpan="2"
+    Grid.ColumnSpan="3"
+    Margin="60 0 60 0"
+    />
+
+
+        <Label
+    Grid.Column="3"
+    Grid.Row="1"           
+    Content="My Garden"
+    VerticalContentAlignment="Center"
+    HorizontalContentAlignment="Center"
+    FontSize="30"/>
+
         
+        <Button
+            Grid.Column="5"
+            Grid.Row="5"
+            Margin="10"
+            Content="Go back"
+            FontSize="23"/>
+
+        <Label
+            Grid.Row="2"
+            Grid.Column="3"
+            Content="Your Plants"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            FontSize="30"/>
+
+
+
+
+
     </Grid>
 </Window>

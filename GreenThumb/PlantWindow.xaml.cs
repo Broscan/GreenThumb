@@ -112,5 +112,16 @@ namespace GreenThumb
 
             }
         }
+
+        private void btn_MyGarden(object sender, RoutedEventArgs e)
+        {
+            MyGardenWindow myGarden = new();
+            myGarden.Show();
+            Close();
+
+
+
+
+        }
     }
 }

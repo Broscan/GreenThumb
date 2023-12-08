@@ -107,5 +107,13 @@
             Content="Add Instruction"
             FontSize="20" Click="btn_AddInstruction"/>
 
+        <Button
+            
+            Grid.Row="1"
+            Grid.Column="4"
+            Margin="25"
+            Content="Home"
+            FontSize="20" Click="btn_GoBack"/>
+
     </Grid>
 </Window>

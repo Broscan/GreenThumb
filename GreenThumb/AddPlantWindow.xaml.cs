@@ -45,7 +45,7 @@ namespace GreenThumb
                     GreenThumbUoW gtUow = new(context);
                     var allPlants = await gtUow.PlantRepository.GetAll();
 
-                    if (!allPlants.Any(p => p.PlantName?.ToLower() == plantName))
+                    if (!allPlants.Any(p => p.PlantName.ToLower() == plantName.ToLower()))
                     {
                         await gtUow.PlantRepository.Add(newPlant);
                         await gtUow.Complete();
@@ -56,7 +56,6 @@ namespace GreenThumb
                     {
                         MessageBox.Show("That plant already exists!", "Warning");
                     }
-
                 }
 
                 else
@@ -83,6 +82,13 @@ namespace GreenThumb
             txtPlant.Text = "";
             txtDesc.Text = "";
             lstInstructions.Items.Clear();
+        }
+
+        private void btn_GoBack(object sender, RoutedEventArgs e)
+        {
+            PlantWindow p = new();
+            p.Show();
+            Close();
         }
     }
 }

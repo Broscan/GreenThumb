@@ -7,6 +7,7 @@ namespace GreenThumb.Manager
     {
         public static UserModel? CurrentSignedInUser { get; set; }
 
+
         public static async Task<bool> SignInUser(string username, string password)
         {
             using (AppDbContext context = new())
@@ -21,6 +22,8 @@ namespace GreenThumb.Manager
                     if (user.UserName == username && user.Password == password)
                     {
                         CurrentSignedInUser = user;
+
+                        //CurrentGarden = await gtUow.GardenRepository.GetById(user.UserId);
                         return true;
                     }
                 }
@@ -49,7 +52,7 @@ namespace GreenThumb.Manager
             }
         }
 
-        public static async Task RegisterUser(string username, string password)
+        public static async Task<bool> RegisterUser(string username, string password)
         {
             using (AppDbContext context = new())
             {
@@ -60,9 +63,16 @@ namespace GreenThumb.Manager
                     UserModel newUser = new UserModel();
                     newUser.UserName = username;
                     newUser.Password = password;
+
+                    GardenModel newGarden = new();
+                    newUser.Garden = newGarden;
+
                     await gtUow.UserRepository.Add(newUser);
+                    await gtUow.Complete();
+                    return true;
 
                 }
+                return false;
             }
 
         }

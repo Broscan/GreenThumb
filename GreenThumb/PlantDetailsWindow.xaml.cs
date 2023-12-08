@@ -1,4 +1,5 @@
 ﻿using GreenThumb.Database;
+using GreenThumb.Manager;
 using GreenThumb.Models;
 using System.Windows;
 
@@ -46,6 +47,30 @@ namespace GreenThumb
             PlantWindow plantWindow = new();
             plantWindow.Show();
             Close();
+        }
+
+        private async void btn_AddToGarden(object sender, RoutedEventArgs e)
+        {
+            using (AppDbContext context = new())
+            {
+                int plantId = _plant.PlantId;
+                // Short hand som returnerar 0 om CurrentSignedInUser.GardenId är null
+                int gardenId = UserManager.CurrentSignedInUser.GardenId ?? 0;
+
+                PlantGarden plantGarden = new()
+                {
+                    PlantId = plantId,
+                    GardenId = gardenId
+                };
+
+                GreenThumbUoW gtUow = new(context);
+
+                await gtUow.PlantGardenRepository.Add(plantGarden);
+                await gtUow.Complete();
+
+                MessageBox.Show("Plant added successfully!");
+
+            }
         }
     }
 }

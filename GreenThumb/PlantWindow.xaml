@@ -92,6 +92,12 @@
             Content="Search for plant!"/>
 
 
+        <Button
+            Grid.Column="5"
+            Grid.Row="1"
+            Margin="10"
+            Content="My Garden"
+            FontSize="20" Click="btn_MyGarden"/>
 
 
 

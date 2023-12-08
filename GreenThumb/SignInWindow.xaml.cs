@@ -18,9 +18,9 @@ namespace GreenThumb
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            bool isNotAuthenticated = await UserManager.SignInUser(username, password);
+            bool IsAuthenticated = await UserManager.SignInUser(username, password);
 
-            if (isNotAuthenticated)
+            if (IsAuthenticated)
             {
                 PlantWindow plWindow = new();
                 plWindow.Show();
@@ -31,6 +31,13 @@ namespace GreenThumb
                 MessageBox.Show("Invalid Username or password!", "Warning");
             }
 
+        }
+
+        private void btn_GoToRegister(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow registerWindow = new();
+            registerWindow.Show();
+            Close();
         }
     }
 }

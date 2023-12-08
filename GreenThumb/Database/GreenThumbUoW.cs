@@ -9,6 +9,8 @@ namespace GreenThumb.Database
         public GreenThumbRepository<PlantModel> PlantRepository { get; }
         public GreenThumbRepository<InstructionModel> InstructionRepository { get; }
         public GreenThumbRepository<UserModel> UserRepository { get; set; }
+        public GreenThumbRepository<GardenModel> GardenRepository { get; set; }
+        public GreenThumbRepository<PlantGarden> PlantGardenRepository { get; set; }
 
         public GreenThumbUoW(AppDbContext context)
         {
@@ -17,6 +19,8 @@ namespace GreenThumb.Database
             PlantRepository = new(context);
             InstructionRepository = new(context);
             UserRepository = new(context);
+            GardenRepository = new(context);
+            PlantGardenRepository = new(context);
         }
 
         public async Task Complete()

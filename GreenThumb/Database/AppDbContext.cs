@@ -39,6 +39,7 @@ namespace GreenThumb.Database
                     UserId = 1,
                     UserName = "Test",
                     Password = "Test",
+                    GardenId = 1
                 });
 
             modelBuilder.Entity<PlantModel>().HasData(
@@ -264,6 +265,22 @@ namespace GreenThumb.Database
                     Instruction = "Well-drained soil; water during dry periods.",
                     InstructionId = 22,
                 });
+
+            modelBuilder.Entity<GardenModel>().HasData(
+                new GardenModel()
+                {
+                    GardenId = 1,
+
+                });
+
+            modelBuilder.Entity<PlantGarden>().HasData(
+                new PlantGarden()
+                {
+                    GardenId = 1,
+                    PlantId = 3
+                });
+
+
 
 
 
