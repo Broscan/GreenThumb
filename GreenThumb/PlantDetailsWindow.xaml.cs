@@ -51,6 +51,7 @@ namespace GreenThumb
 
         private async void btn_AddToGarden(object sender, RoutedEventArgs e)
         {
+
             using (AppDbContext context = new())
             {
                 int plantId = _plant.PlantId;
@@ -64,11 +65,18 @@ namespace GreenThumb
                 };
 
                 GreenThumbUoW gtUow = new(context);
+                try
+                {
 
-                await gtUow.PlantGardenRepository.Add(plantGarden);
-                await gtUow.Complete();
+                    await gtUow.PlantGardenRepository.Add(plantGarden);
+                    await gtUow.Complete();
 
-                MessageBox.Show("Plant added successfully!");
+                    MessageBox.Show("Plant added successfully!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("This plant is already in your garden", "Warning!");
+                }
 
             }
         }

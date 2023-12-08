@@ -44,8 +44,8 @@ namespace GreenThumb.Database
                 new UserModel()
                 {
                     UserId = 1,
-                    UserName = "Test",
-                    Password = "Test",
+                    UserName = "user",
+                    Password = "password",
                     GardenId = 1
                 });
 
