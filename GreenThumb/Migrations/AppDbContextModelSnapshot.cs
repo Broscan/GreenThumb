@@ -347,7 +347,7 @@ namespace GreenThumb.Migrations
                         {
                             UserId = 1,
                             GardenId = 1,
-                            Password = "Test",
+                            Password = "6hpv81B4M1VK5Nf6eHR1Qw==",
                             UserName = "Test"
                         });
                 });

@@ -99,6 +99,13 @@
             Content="My Garden"
             FontSize="20" Click="btn_MyGarden"/>
 
+        <Button
+            Grid.Column="1"
+            Grid.Row="5"
+            Margin="10"
+            Content="Sign Out"
+            FontSize="20" Click="btn_SignOut"/>
+
 
 
     </Grid>

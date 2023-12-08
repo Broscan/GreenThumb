@@ -55,7 +55,7 @@
             Grid.Row="5"
             Margin="10"
             Content="Go back"
-            FontSize="23"/>
+            FontSize="23" Click="btn_GoBackToPlants"/>
 
         <Label
             Grid.Row="2"

@@ -74,10 +74,13 @@ namespace GreenThumb.Manager
                 }
                 return false;
             }
-
         }
 
 
+        public static void SignOutUser()
+        {
+            CurrentSignedInUser = null;
+        }
 
     }
 }

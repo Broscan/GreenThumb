@@ -1,14 +1,20 @@
-﻿using GreenThumb.Models;
+﻿using EntityFrameworkCore.EncryptColumn.Extension;
+using EntityFrameworkCore.EncryptColumn.Interfaces;
+using EntityFrameworkCore.EncryptColumn.Util;
+using GreenThumb.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace GreenThumb.Database
 {
     public class AppDbContext : DbContext
     {
+        private readonly IEncryptionProvider _Provider;
+
         public AppDbContext()
         {
-
+            _Provider = new GenerateEncryptionProvider("oooooooooooooooooooooooo");
         }
+
 
         public DbSet<PlantModel> Plants { get; set; }
         public DbSet<GardenModel> Gardens { get; set; }
@@ -32,6 +38,7 @@ namespace GreenThumb.Database
             modelBuilder.Entity<PlantModel>().HasMany(p => p.Instructions).WithOne(p => p.Plant).OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<PlantGarden>().HasKey(pg => new { pg.PlantId, pg.GardenId });
+            modelBuilder.UseEncryption(_Provider);
 
             modelBuilder.Entity<UserModel>().HasData(
                 new UserModel()

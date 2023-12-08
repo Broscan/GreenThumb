@@ -151,9 +151,14 @@ namespace GreenThumb.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "PlantGarden",
+                columns: new[] { "GardenId", "PlantId" },
+                values: new object[] { 1, 3 });
+
+            migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "id", "garden_id", "password", "username" },
-                values: new object[] { 1, 1, "Test", "Test" });
+                values: new object[] { 1, 1, "6hpv81B4M1VK5Nf6eHR1Qw==", "Test" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Instructions_plant_id",

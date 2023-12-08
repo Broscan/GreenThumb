@@ -1,4 +1,5 @@
 ﻿using GreenThumb.Database;
+using GreenThumb.Manager;
 using GreenThumb.Models;
 using System.Windows;
 using System.Windows.Controls;
@@ -44,9 +45,6 @@ namespace GreenThumb
             newWindow.Show();
             Close();
         }
-
-
-
 
         private void btn_Details(object sender, RoutedEventArgs e)
         {
@@ -109,7 +107,6 @@ namespace GreenThumb
 
                     lstPlants.Items.Add(item);
                 }
-
             }
         }
 
@@ -118,10 +115,14 @@ namespace GreenThumb
             MyGardenWindow myGarden = new();
             myGarden.Show();
             Close();
+        }
 
-
-
-
+        private void btn_SignOut(object sender, RoutedEventArgs e)
+        {
+            UserManager.SignOutUser();
+            SignInWindow signInWindow = new();
+            signInWindow.Show();
+            Close();
         }
     }
 }

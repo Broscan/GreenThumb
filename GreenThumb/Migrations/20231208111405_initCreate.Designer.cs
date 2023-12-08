@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumb.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231208103615_initCreate")]
+    [Migration("20231208111405_initCreate")]
     partial class initCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -215,6 +215,13 @@ namespace GreenThumb.Migrations
                     b.HasIndex("GardenId");
 
                     b.ToTable("PlantGarden");
+
+                    b.HasData(
+                        new
+                        {
+                            PlantId = 3,
+                            GardenId = 1
+                        });
                 });
 
             modelBuilder.Entity("GreenThumb.Models.PlantModel", b =>
@@ -342,7 +349,7 @@ namespace GreenThumb.Migrations
                         {
                             UserId = 1,
                             GardenId = 1,
-                            Password = "Test",
+                            Password = "6hpv81B4M1VK5Nf6eHR1Qw==",
                             UserName = "Test"
                         });
                 });
