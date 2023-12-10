@@ -23,7 +23,6 @@ namespace GreenThumb.Manager
                     {
                         CurrentSignedInUser = user;
 
-                        //CurrentGarden = await gtUow.GardenRepository.GetById(user.UserId);
                         return true;
                     }
                 }

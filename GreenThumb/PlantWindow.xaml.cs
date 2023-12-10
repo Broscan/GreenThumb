@@ -94,8 +94,8 @@ namespace GreenThumb
         {
             using (AppDbContext context = new())
             {
+                // Search funtion which updates with every character you write
                 string searchPlant = searchPlants.Text.ToLower();
-
                 var filterPlants = context.Plants.Where(p => p.PlantName.Contains(searchPlant)).ToList();
 
                 lstPlants.Items.Clear();
